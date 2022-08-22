@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+
+:root {
+    font-size: 1rem;
+    font-family: 'Raleway', sans-serif;
+    --nav-bg: orange;
+    --main-bg: #fcbf49;
+    --nav-width: clamp(210px, 22vw, 325px);
+    --transition-notNav: margin-left 0.4s ease-in;
+    --transition-nav: width 0.4s ease-in;
+}
+
+body {
+    width: 100vw;
+    height: 99vh;
+    display: grid;
+    grid-template-areas: 
+    "nav header header header"
+    "nav content content content"
+    "nav footer footer footer";
+    grid-template-rows: 0.8fr 4fr;
+    grid-template-columns: 5rem 1fr 1fr 1fr;
+    background-color: #fce7cc;
+}
+
+
+/* Navbar */
+nav {
+    grid-area: nav;
+    height: 100vh;
+    position: fixed;
+    background-color: var(--nav-bg);
+    overflow: hidden;
+    width: 5rem;
+    transition: var(--transition-nav);
+}
+
+.navbar:hover {
+    width: var(--nav-width);
+}
+.navbar:hover > .navItem > h1,
+.navbar:hover > .projectSection > .navItem > h1{
+    display: inline;
+}
+
+.navbar > div:not(:first-child) > * {
+    padding: 1vw 0.1vw 0.1vw 0vw;
+    font-size: calc(20px + 0.2vw);
+    padding-left: 20px;
+}
+
+.navbar > div:not(:first-child) > img {
+    width: calc(20px + 0.5vw);
+    height: calc(20px + 0.5vw);
+}
+
+.navbar > .projectSection > .navItem > img {
+    width: calc(20px + 0.5vw);
+    height: calc(20px + 0.5vw);
+}
+
+.navbar > .projectSection > .navItem > button > img {
+    width: calc(10px + 0.5vw);
+    height: calc(10px + 0.5vw);
+}
+
+.navbar > div:nth-child(5) {
+    margin-top: 50px;
+}
+
+#tasksBtn {
+    font-size: clamp(12px, calc(25px + 0.9vw), 50px);
+}
+
+.navbar:hover ~ .topHeader,
+.navbar:hover ~ .listToDo {
+    margin-left: calc(var(--nav-width) - 5rem);
+}
+
+.task img {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: calc(40px + 0.7vw);
+    height: calc(40px + 0.7vw);
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.navItem {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.navItem > h1{
+    display: none;
+    margin-left: 5%;
+}
+.navbar > .projectSection > .navItem > h1 {
+    display: none;
+    margin-left: 12%;
+}
+.navItem > * {
+    cursor: pointer;
+}
+.navItem > img:not(:first-child){
+    padding: 0.5rem;
+}
+
+#navEdit,
+#navDelete {
+    display: none;
+    background-color: orange;
+    border: none;
+}
+.navbar:hover > .projectSection > .navItem > #navEdit,
+.navbar:hover > .projectSection > .navItem > #navDelete{
+    display: inline;
+}
+
+#navEdit {
+    margin-left: 20px;
+}
+#navDelete {
+    margin-left: 10px;
+}
+.projects {
+    margin-bottom: 30px;
+}
+
+#addProjectTitle {
+    display: none;
+    width: 10vw;
+    border: solid black;
+    outline: none;
+    background-color: orange;
+    resize: none;
+    margin-left: 12%;
+}
+.navOkay,
+.navCancel {
+    display: none;
+    border: none;
+    background-color: orange;
+}
+
+.navbar:hover > .projectSection > .navItem > button,
+.navbar:hover > .projectSection > .navItem > #addProjectTitle{
+    display: inline;
+}
+
+
+#addNew {
+    margin-top: 100px;
+    background-color: orange;
+    border: none;
+}
+/* Header */
+.topHeader {
+    grid-area: header;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition-notNav);
+    background-color: var(--main-bg);
+}
+.logoImage {
+    width: calc(70px + 2vw);
+    height: calc(70px + 2vh);
+}
+.title {
+    font-size: 3rem;
+}
+
+/* Content */
+.listToDo {
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    transition: var(--transition-notNav);
+}
+
+
+.listItem {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    justify-self: center;
+    margin-left: 200px;
+}
+
+.listItem > button > img{
+    width: calc(10px + 0.5vw);
+    height: calc(10px + 0.5vw);
+}
+
+.listItem > button {
+    width: 50px;
+    background-color: #fce7cc;
+    border: none;
+    cursor: pointer;
+}
+.addList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+.addList > * {
+    cursor: pointer;
+}
+.addList > h1 {
+    margin-left: 20px;
+    font-size: 1.5rem;
+}
+.addList > img {
+    width: calc(40px + 0.5vw);
+    height: calc(40px + 0.5vw);
+}
+
+.addTaskBottom > button > img{
+    width: calc(30px + 0.5vw);
+    height: calc(30px + 0.5vw);
+    margin: 10px;
+    cursor: pointer;
+}
+
+.addTaskBottom > button {
+    background-color: #fce7cc;
+    border: none;
+}
+
+#addTaskForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.addTaskTop {
+    display: flex;
+    flex-direction: column;
+}
+.addTaskTop > * {
+    margin-bottom: 5px;
+    border: none;
+    resize: none;
+    outline-color: orange;
+}
+
+#addTaskTitle {
+    width: 20vw;
+}
+
+#addTaskDescription {
+    height: 10vh;
+}
+
+#editTaskTitle,
+#editTaskDescription,
+#editTaskDate {
+    height: 20px;
+    margin: 5px;
+    border: none;
+    resize: none;
+    outline: none;
+}
+
+/* Footer */
+footer {
+    grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
