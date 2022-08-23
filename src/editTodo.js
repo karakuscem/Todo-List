@@ -27,6 +27,7 @@ export function editTodo(){
         let inputDesc = document.createElement("input");
         inputDesc.name = "editTaskDescription";
         inputDesc.id = "editTaskDescription";
+        inputDesc.maxLength = "35";
         inputDesc.placeholder = listItemDesc.innerHTML;
         listItem.insertBefore(inputDesc, listItemDesc);
 
