@@ -187,6 +187,7 @@ nav {
     display: grid;
     grid-template-columns: .5fr 1.5fr 4fr 1fr 1fr 1fr;
     justify-self: center;
+    align-items: center;
     margin-left: 200px;
 }
 
@@ -263,10 +264,10 @@ nav {
 #editTaskDescription,
 #editTaskDate {
     height: 20px;
-    margin: 5px;
-    border: none;
+    border: 1px solid black;
     resize: none;
     outline: none;
+    margin-right: 5px;
 }
 
 /* Footer */

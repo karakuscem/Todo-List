@@ -1,6 +1,7 @@
 import { showAddTaskForm } from "./showTaskForm";
 import { showToDo } from "./showToDo";
 import { deleteTodo } from "./deleteTodo";
+import { editTodo } from "./editTodo";
 export let todoItems = JSON.parse(localStorage.getItem("todoItems"));
 export let todoListDiv = document.querySelector(".list")
 const startApp = () => {
@@ -17,3 +18,4 @@ const startApp = () => {
 startApp();
 showAddTaskForm();
 deleteTodo();
+editTodo();
