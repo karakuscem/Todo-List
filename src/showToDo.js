@@ -28,19 +28,13 @@ export function showToDo(todo) {
     taskDateDiv.textContent = todo.date;
     liItem.appendChild(taskDateDiv);
 
-    const taskEditButton = document.createElement("button");
-    taskEditButton.classList.add("edit");
-    taskEditButton.setAttribute("id", "contentEdit");
     const taskEditIcon = document.createElement("img");
     taskEditIcon.src = "img/pencil-solid.svg";
-    taskEditButton.appendChild(taskEditIcon);
-    liItem.appendChild(taskEditButton);
+    taskEditIcon.classList.add("taskEditIcon");
+    liItem.appendChild(taskEditIcon);
 
-    const taskDeleteButton = document.createElement("button");
-    taskDeleteButton.classList.add("delete");
-    taskDeleteButton.setAttribute("id", "contentDelete");
     const taskDeleteIcon = document.createElement("img");
     taskDeleteIcon.src = "img/eraser-solid.svg";
-    taskDeleteButton.appendChild(taskDeleteIcon);
-    liItem.appendChild(taskDeleteButton);
+    taskDeleteIcon.classList.add("taskDeleteIcon");
+    liItem.appendChild(taskDeleteIcon);
 }

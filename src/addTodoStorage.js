@@ -1,5 +1,6 @@
 import { showToDo } from "./showToDo";
 import { todoItems, todoListDiv } from ".";
+import { deleteTodo } from "./deleteTodo";
 export function addTodoStorage() {
     const addTaskTitle = document.querySelector("#addTaskTitle");
     const addTaskDescription = document.querySelector("#addTaskDescription")
@@ -21,6 +22,7 @@ export function addTodoStorage() {
         todoListDiv.innerHTML = "";
         todoItems.forEach(todoItem => {
             showToDo(todoItem);
+            deleteTodo();
         })
     }
     addTaskForm.style.display = "none";

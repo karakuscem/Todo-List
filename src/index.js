@@ -1,7 +1,8 @@
 import { showAddTaskForm } from "./showTaskForm";
 import { showToDo } from "./showToDo";
-export const todoItems = JSON.parse(localStorage.getItem("todoItems"));
-export const todoListDiv = document.querySelector(".list")
+import { deleteTodo } from "./deleteTodo";
+export let todoItems = JSON.parse(localStorage.getItem("todoItems"));
+export let todoListDiv = document.querySelector(".list")
 const startApp = () => {
     if(!todoItems) {
         localStorage.setItem("todoItems", JSON.stringify([]));
@@ -9,9 +10,10 @@ const startApp = () => {
         todoListDiv.innerHTML = "";
         todoItems.forEach(todoItem => {
             showToDo(todoItem);
-        })
+        });
     }
 }
 
 startApp();
 showAddTaskForm();
+deleteTodo();

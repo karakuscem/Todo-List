@@ -190,12 +190,12 @@ nav {
     margin-left: 200px;
 }
 
-.listItem > button > img{
+.listItem > img{
     width: calc(10px + 0.5vw);
     height: calc(10px + 0.5vw);
 }
 
-.listItem > button {
+.listItem > img {
     width: 50px;
     background-color: #fce7cc;
     border: none;
