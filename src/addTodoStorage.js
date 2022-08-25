@@ -17,7 +17,21 @@ export function addTodoStorage() {
     if(addTaskTitle.value == "" || addTaskDescription.value == "" || addTaskDate.value == ""){
         alert("You must fill all the blanks.")
     }
-    else{
+    let pageTitle = document.querySelector(".pageTitle");
+    if(pageTitle && pageTitle.innerHTML in localStorage) {
+        let projectStorage = JSON.parse(localStorage.getItem(`${pageTitle.innerHTML}`))
+        projectStorage = projectStorage.filter(td => td.title != todo.title);
+        projectStorage.push(todo);
+        localStorage.setItem(`${pageTitle.innerHTML}`, JSON.stringify(projectStorage));
+        todoListDiv.innerHTML = "";
+        projectStorage.forEach(todoItem => {
+            showToDo(todoItem);
+        })
+        deleteTodo();
+        editTodo();
+    }
+
+    else if (!pageTitle){
         todoItems.push(todo);
         localStorage.setItem("todoItems", JSON.stringify(todoItems));
         todoListDiv.innerHTML = "";

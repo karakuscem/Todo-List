@@ -1,5 +1,6 @@
 import { projectItems, projectListDiv } from ".";
 import { showProjects } from "./showProject";
+import { showProjectTasks } from "./showProjectTasks";
 
 const newProjectButton = document.querySelectorAll("#addNewProject");
 const projectButtons = document.querySelector("#addNew");
@@ -28,7 +29,7 @@ export function addProject(){
             projectTitleInput.name = "addProjectTitle";
             projectTitleInput.id = "addProjectTitle";
             projectTitleInput.placeholder = "Project Title";
-            projectTitleInput.maxLength = "15";
+            projectTitleInput.maxLength = "10";
             projectTitleInput.required = "true";
             navItem.appendChild(projectTitleInput);
 
@@ -50,16 +51,18 @@ export function addProject(){
                     projectTitle.innerHTML = projectTitleInput.value;
                     projectTitle.classList.add("button");
                     const projectStorageItems = {
-                        title: projectTitleInput.value
+                        title: projectTitleInput.value.toUpperCase()
                     }
                     projectItems.push(projectStorageItems);
                     localStorage.setItem("projectItems", JSON.stringify(projectItems));
+                    localStorage.setItem(`${projectTitle.innerHTML.toUpperCase()}`, JSON.stringify([]))
                     projectTitleInput.remove();
                     projectOkay.remove();
                     projectCancel.remove();
                     projectListDiv.innerHTML = "";
                     projectItems.forEach(projectItem => {
                         showProjects(projectItem)
+                        showProjectTasks();
                     });
                     projectButtons.style.display = "flex";
                 }

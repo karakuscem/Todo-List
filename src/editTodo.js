@@ -47,29 +47,61 @@ export function editTodo(){
         listItem.insertBefore(cancelButton, listItemDelete);
 
         okayButton.addEventListener("click", (e) => {
-            for(let i in todoItems) {
-                if(todoItems[i].title == listItemTitle.innerHTML && todoItems[i].description == listItemDesc.innerHTML && todoItems[i].date == listItemDate.innerHTML) {
-                    if (inputTitle.value == "" && inputDesc.value == "") {
-                        alert("You must fill all the blanks.")
+            let pageTitle = document.querySelector(".pageTitle");
+            let projectStorage = JSON.parse(localStorage.getItem(`${pageTitle.innerHTML}`))
+            if(pageTitle && pageTitle.innerHTML in localStorage){
+                for (let i in projectStorage) {
+                    if(projectStorage[i].title == listItemTitle.innerHTML && projectStorage[i].description == listItemDesc.innerHTML && projectStorage[i].date == listItemDate.innerHTML){
+                        if (inputTitle.value == "" && inputDesc.value == "") {
+                            alert("You must fill all the blanks.")
+                        }
+                        else {
+                            projectStorage[i].title = inputTitle.value;
+                            projectStorage[i].description = inputDesc.value;
+                            projectStorage[i].date = inputDate.value;
+                            listItemTitle.innerHTML = inputTitle.value;
+                            listItemDesc.innerHTML = inputDesc.value;
+                            listItemDate.innerHTML = inputDate.value;
+                            inputTitle.remove();
+                            inputDesc.remove();
+                            inputDate.remove();
+                            okayButton.remove();
+                            cancelButton.remove();
+                            listItemTitle.style.display = "inline"
+                            listItemDesc.style.display = "inline"
+                            listItemDate.style.display = "inline"
+                            listItemEdit.style.display = "inline"
+                            listItemDelete.style.display = "inline"
+                            localStorage.setItem(`${pageTitle.innerHTML}`, JSON.stringify(projectStorage)) 
+                        }
                     }
-                    else {
-                        todoItems[i].title = inputTitle.value;
-                        todoItems[i].description = inputDesc.value;
-                        todoItems[i].date = inputDate.value;
-                        listItemTitle.innerHTML = inputTitle.value;
-                        listItemDesc.innerHTML = inputDesc.value;
-                        listItemDate.innerHTML = inputDate.value;
-                        inputTitle.remove();
-                        inputDesc.remove();
-                        inputDate.remove();
-                        okayButton.remove();
-                        cancelButton.remove();
-                        listItemTitle.style.display = "inline"
-                        listItemDesc.style.display = "inline"
-                        listItemDate.style.display = "inline"
-                        listItemEdit.style.display = "inline"
-                        listItemDelete.style.display = "inline"
-                        localStorage.setItem("todoItems", JSON.stringify(todoItems))
+                }
+            }
+            else if (!pageTitle) {
+                for(let i in todoItems) {
+                    if(todoItems[i].title == listItemTitle.innerHTML && todoItems[i].description == listItemDesc.innerHTML && todoItems[i].date == listItemDate.innerHTML) {
+                        if (inputTitle.value == "" && inputDesc.value == "") {
+                            alert("You must fill all the blanks.")
+                        }
+                        else {
+                            todoItems[i].title = inputTitle.value;
+                            todoItems[i].description = inputDesc.value;
+                            todoItems[i].date = inputDate.value;
+                            listItemTitle.innerHTML = inputTitle.value;
+                            listItemDesc.innerHTML = inputDesc.value;
+                            listItemDate.innerHTML = inputDate.value;
+                            inputTitle.remove();
+                            inputDesc.remove();
+                            inputDate.remove();
+                            okayButton.remove();
+                            cancelButton.remove();
+                            listItemTitle.style.display = "inline"
+                            listItemDesc.style.display = "inline"
+                            listItemDate.style.display = "inline"
+                            listItemEdit.style.display = "inline"
+                            listItemDelete.style.display = "inline"
+                            localStorage.setItem("todoItems", JSON.stringify(todoItems))
+                        }
                     }
                 }
             }

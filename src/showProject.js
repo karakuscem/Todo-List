@@ -1,4 +1,3 @@
-import { projectItems } from ".";
 export function showProjects(projectNames) {
     const projectSection = document.querySelector(".projectSection")
     const navItem = document.createElement("div");
@@ -11,5 +10,6 @@ export function showProjects(projectNames) {
 
     const projectTitle = document.createElement("h1");
     projectTitle.textContent = projectNames.title;
+    projectTitle.id = "projectButton";
     navItem.appendChild(projectTitle);
 }
