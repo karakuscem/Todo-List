@@ -131,21 +131,24 @@ nav {
 
 #addProjectTitle {
     display: none;
-    width: 10vw;
+    width: 7vw;
     border: solid black;
     outline: none;
     background-color: orange;
     resize: none;
     margin-left: 12%;
 }
-.navOkay,
-.navCancel {
+#navOkay,
+#navCancel {
     display: none;
     border: none;
     background-color: orange;
+    width: calc(5px + 0.7vw);
+    height: calc(5px + 0.7vw);
 }
 
-.navbar:hover > .projectSection > .navItem > button,
+.navbar:hover > .projectSection > .navItem > #navOkay,
+.navbar:hover > .projectSection > .navItem > #navCancel,
 .navbar:hover > .projectSection > .navItem > #addProjectTitle{
     display: inline;
 }
