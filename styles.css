@@ -177,6 +177,13 @@ nav {
 }
 
 /* Content */
+.pageTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
 .listToDo {
     grid-area: content;
     display: flex;
