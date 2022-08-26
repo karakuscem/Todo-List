@@ -1,6 +1,8 @@
 import { todoItems } from ".";
 import { showToDo } from "./showToDo";
 import { todoListDiv } from ".";
+import { deleteTodo } from "./deleteTodo";
+import { editTodo } from "./editTodo";
 
 const addListButton = document.querySelector(".addList");
 const homeBtn = document.querySelectorAll("#homeBtn");
@@ -12,5 +14,7 @@ export function homePage(){
         todoItems.forEach(td => {
             showToDo(td);
         })
+        deleteTodo();
+        editTodo();
     }))
 }

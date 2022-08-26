@@ -2,6 +2,8 @@ import { todoListDiv, todoItems } from ".";
 import { showToDo } from "./showToDo";
 import add from "date-fns/add";
 import format from "date-fns/format";
+import { deleteTodo } from "./deleteTodo";
+import { editTodo } from "./editTodo";
 
 
 const weekBtn = document.querySelectorAll("#weekBtn");
@@ -17,13 +19,19 @@ for(let i = 0; i < 7; i++) {
     let formattedResult = format(new Date(result), "yyyy-MM-dd")
     dates.push(formattedResult);
 }
-
+const addListButton = document.querySelector(".addList");
 export function weekPage(){
     weekBtn.forEach(btn => btn.addEventListener("click", () => {
+        addListButton.style.display = "none";
         todoListDiv.innerHTML = "";
-        todoItems = todoItems.filter(td => td.date == dates[0] || td.date == dates[1] || td.date == dates[2] || td.date == dates[3] || td.date == dates[4] || td.date == dates[5] || td.date == dates[6]);
-        todoItems.forEach(td => {
-            showToDo(td);
-        })
+        for(let i = 0; i < 6; i++){
+            let weeksItems = todoItems;
+            weeksItems = weeksItems.filter(td => td.date == dates[i])
+            weeksItems.forEach(td => {
+                showToDo(td);
+            })
+        }
+        deleteTodo();
+        editTodo();
     }))
 }
