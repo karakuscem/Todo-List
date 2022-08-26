@@ -3,12 +3,12 @@ import { showToDo } from "./showToDo";
 import { todoListDiv } from ".";
 
 const addListButton = document.querySelector(".addList");
-const taskBtn = document.querySelectorAll("#tasksBtn");
+const homeBtn = document.querySelectorAll("#homeBtn");
 
-export function tasksPage(){
-    taskBtn.forEach(btn => btn.addEventListener("click", () => {
+export function homePage(){
+    homeBtn.forEach(btn => btn.addEventListener("click", () => {
         todoListDiv.innerHTML = ""
-        addListButton.style.display = "none";
+        addListButton.style.display = "flex";
         todoItems.forEach(td => {
             showToDo(td);
         })

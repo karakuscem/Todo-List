@@ -6,6 +6,7 @@ import { addProject } from "./addProject";
 import { showProjects } from "./showProject";
 import { showProjectTasks } from "./showProjectTasks";
 import { tasksPage } from "./tasksPage";
+import { homePage } from "./homePage";
 
 export let todoItems = JSON.parse(localStorage.getItem("todoItems"));
 export let projectItems = JSON.parse(localStorage.getItem("projectItems"));
@@ -39,3 +40,4 @@ editTodo();
 addProject();
 showProjectTasks();
 tasksPage();
+homePage();
