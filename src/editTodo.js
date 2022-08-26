@@ -48,11 +48,14 @@ export function editTodo(){
 
         okayButton.addEventListener("click", (e) => {
             let pageTitle = document.querySelector(".pageTitle");
-            let projectStorage = JSON.parse(localStorage.getItem(`${pageTitle.innerHTML}`))
+            let projectStorage;
+            if(pageTitle){
+                projectStorage = JSON.parse(localStorage.getItem(`${pageTitle.innerHTML}`))
+            }
             if(pageTitle && pageTitle.innerHTML in localStorage){
                 for (let i in projectStorage) {
                     if(projectStorage[i].title == listItemTitle.innerHTML && projectStorage[i].description == listItemDesc.innerHTML && projectStorage[i].date == listItemDate.innerHTML){
-                        if (inputTitle.value == "" && inputDesc.value == "") {
+                        if (inputTitle.value == "" || inputDesc.value == "") {
                             alert("You must fill all the blanks.")
                         }
                         else {
