@@ -46,6 +46,9 @@ export function addProject(){
                 if(projectTitleInput.value == ""){
                     alert("You must fill the title.")
                 }
+                else if(projectTitleInput.value.toUpperCase() in localStorage){
+                    alert("You cannot add same project twice.")
+                }
                 else {
                     const projectTitle = document.createElement("h1");
                     projectTitle.innerHTML = projectTitleInput.value;
