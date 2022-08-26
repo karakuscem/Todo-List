@@ -272,7 +272,7 @@ nav {
 }
 
 #addTaskTitle {
-    width: 20vw;
+    min-width: 20vw;
 }
 
 #addTaskDescription {
@@ -296,4 +296,99 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
+}
+
+@media (max-width: 650px){
+body {
+    display: grid;
+    grid-template-rows: 0.5fr 4fr;
+    grid-template-columns: 5rem 1fr 1fr 1fr;
+    height: 100vh;
+}
+
+.listToDo {
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    transition: var(--transition-notNav);
+}
+
+.topHeader {
+    width: 650px;
+}
+    
+.listItem {
+    font-size: .3rem;
+    display: grid;
+    grid-template-columns: .5fr 2fr 2fr 1fr .5fr .5fr;
+    justify-self: center;
+    align-items: center;
+    margin-left: 50px;
+}
+    
+.listItem > .taskTitle,
+.listItem > .taskDetails {
+    min-width: 5rem;
+}
+    
+.listItem > * {
+    min-width: 100pxc(10px + 0.5vw);
+}
+    
+.listItem > img {
+    width: 20px;
+    background-color: #fce7cc;
+    border: none;
+    cursor: pointer;
+}
+
+.logoImage {
+    width: calc(30px + 2vw);
+    height: calc(30px + 2vh);
+}
+.title {
+    font-size: 1.5rem;
+}
+
+.addList > h1 {
+    margin-left: 20px;
+    font-size: .8rem;
+}
+.addList > img {
+    width: calc(20px + 0.5vw);
+    height: calc(20px + 0.5vw);
+}
+
+#addTaskTitle {
+    width: 50vw;
+}
+    
+#addTaskDescription {
+    height: 10vh;
+}
+
+#addProjectTitle {
+    width: 22vw;
+}
+
+#editTaskTitle,
+#editTaskDescription,
+#editTaskDate {
+    height: 10px;
+    border: 1px solid black;
+    resize: none;
+    outline: none;
+    margin-right: 5px;
+}
+
+nav {
+    height: 1000vh;
+    grid-area: nav;
+    position: fixed;
+    background-color: var(--nav-bg);
+    overflow: hidden;
+    width: 5rem;
+    transition: var(--transition-nav);
+}
 }
