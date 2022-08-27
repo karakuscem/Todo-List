@@ -35,9 +35,9 @@ const startApp = () => {
         });
     }
 }
-
-// Use functions
 startApp();
+// Use functions
+
 showAddTaskForm();
 deleteTodo();
 editTodo();

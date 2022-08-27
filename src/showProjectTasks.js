@@ -21,6 +21,8 @@ export function showProjectTasks(){
             let listToDo = document.querySelector(".listToDo");
             let listElement = document.querySelector(".list")
             listToDo.insertBefore(createPageTitle, listElement);
+            const addListButton = document.querySelector(".addList");
+            addListButton.style.display = "flex";
         }
         else {
             let createPageTitle = document.createElement("h1");
@@ -29,15 +31,14 @@ export function showProjectTasks(){
             let listToDo = document.querySelector(".listToDo");
             let listElement = document.querySelector(".list")
             listToDo.insertBefore(createPageTitle, listElement);
-        }
-        
+            const addListButton = document.querySelector(".addList");
+            addListButton.style.display = "flex";
+        }     
         // Show todo items of project
         todoListDiv.innerHTML = "";
         projectStorage.forEach(todoItem => {
             showToDo(todoItem);
         });
-        const addListButton = document.querySelector(".addList");
-        addListButton.style.display = "flex";
         checkTodo();
         editTodo();
         deleteTodo();
