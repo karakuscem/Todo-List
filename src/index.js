@@ -11,6 +11,7 @@ import { todayPage } from "./todayPage";
 import { weekPage } from "./weekPage";
 import { deleteProject } from "./deleteProject";
 import { editProject } from "./editProject";
+import { checkTodo } from "./checkTodo";
 
 export let todoItems = JSON.parse(localStorage.getItem("todoItems"));
 export let projectItems = JSON.parse(localStorage.getItem("projectItems"));
@@ -19,10 +20,10 @@ export let projectListDiv = document.querySelector(".projectSection")
 // Starting app
 const startApp = () => {
     if(!todoItems) {
-        localStorage.setItem("todoItems", JSON.stringify([]));
+       todoItems = localStorage.setItem("todoItems", JSON.stringify([]));
     }
     else if (!projectItems) {
-        localStorage.setItem("projectItems", JSON.stringify([{"title":"TO-DO APP"}]));
+        projectItems = localStorage.setItem("projectItems", JSON.stringify([]));
     } 
     else {
         todoListDiv.innerHTML = "";
@@ -35,9 +36,9 @@ const startApp = () => {
         });
     }
 }
-startApp();
-// Use functions
 
+// Use functions
+startApp();
 showAddTaskForm();
 deleteTodo();
 editTodo();
