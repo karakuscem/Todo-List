@@ -36,6 +36,8 @@ export function showProjectTasks(){
         projectStorage.forEach(todoItem => {
             showToDo(todoItem);
         });
+        const addListButton = document.querySelector(".addList");
+        addListButton.style.display = "flex";
         checkTodo();
         editTodo();
         deleteTodo();
