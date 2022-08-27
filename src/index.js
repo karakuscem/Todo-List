@@ -22,7 +22,7 @@ const startApp = () => {
         localStorage.setItem("todoItems", JSON.stringify([]));
     }
     else if (!projectItems) {
-        localStorage.setItem("projectItems", JSON.stringify([]));
+        localStorage.setItem("projectItems", JSON.stringify([{"title":"TO-DO APP"},{"title":"TICTACKTOE"},{"title":"CALCULATOR"},{"title":"ROCKPAPER"},{"title":"LANDING PAGE"}]));
     } 
     else {
         todoListDiv.innerHTML = "";
@@ -35,9 +35,9 @@ const startApp = () => {
         });
     }
 }
-
-// Use functions
 startApp();
+// Use functions
+
 showAddTaskForm();
 deleteTodo();
 editTodo();
