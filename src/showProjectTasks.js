@@ -1,4 +1,7 @@
 import { todoListDiv } from ".";
+import { checkTodo } from "./checkTodo";
+import { deleteTodo } from "./deleteTodo";
+import { editTodo } from "./editTodo";
 import { showToDo } from "./showToDo";
 // Function for showing project todos
 export function showProjectTasks(){
@@ -33,5 +36,8 @@ export function showProjectTasks(){
         projectStorage.forEach(todoItem => {
             showToDo(todoItem);
         });
+        checkTodo();
+        editTodo();
+        deleteTodo();
     }))
 }
