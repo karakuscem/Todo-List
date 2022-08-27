@@ -20,6 +20,7 @@ export function addTodoStorage() {
     //Check if all blanks are filled
     if(addTaskTitle.value == "" || addTaskDescription.value == "" || addTaskDate.value == ""){
         alert("You must fill all the blanks.")
+        return;
     }
     // Check user in project page, if so add todo item to project storage
     let pageTitle = document.querySelector(".pageTitle");

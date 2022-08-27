@@ -11,8 +11,9 @@ const projectSection = document.querySelector(".projectSection")
 export function addProject(){
     newProjectButton.forEach(btn => btn.addEventListener("click", (e) => {
         //Check how many project user have and won't let more than 5
-        if(projectSection.childElementCount > 4){
+        if(projectSection.childElementCount == 5 && projectItems.length == 5){
             alert("You cannot add more projects");
+            return
         }
         else {
             // Don't allow show two input
@@ -37,7 +38,7 @@ export function addProject(){
             projectTitleInput.name = "addProjectTitle";
             projectTitleInput.id = "addProjectTitle";
             projectTitleInput.placeholder = "Project Title";
-            projectTitleInput.maxLength = "10";
+            projectTitleInput.maxLength = "15";
             projectTitleInput.required = "true";
             navItem.appendChild(projectTitleInput);
 
