@@ -22,7 +22,7 @@ const startApp = () => {
         localStorage.setItem("todoItems", JSON.stringify([]));
     }
     else if (!projectItems) {
-        localStorage.setItem("projectItems", JSON.stringify([]));
+        localStorage.setItem("projectItems", JSON.stringify([{"title":"TO-DO APP"}]));
     } 
     else {
         todoListDiv.innerHTML = "";
