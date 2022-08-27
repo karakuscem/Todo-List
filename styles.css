@@ -138,6 +138,15 @@ nav {
     resize: none;
     margin-left: 12%;
 }
+#editProjectTitle {
+    display: none;
+    width: 7vw;
+    border: solid black;
+    outline: none;
+    background-color: orange;
+    resize: none;
+    margin-left: 12%;
+}
 #navOkay,
 #navCancel {
     display: none;
@@ -149,10 +158,28 @@ nav {
 
 .navbar:hover > .projectSection > .navItem > #navOkay,
 .navbar:hover > .projectSection > .navItem > #navCancel,
-.navbar:hover > .projectSection > .navItem > #addProjectTitle{
+.navbar:hover > .projectSection > .navItem > #addProjectTitle,
+.navbar:hover > .projectSection > .navItem > #editProjectTitle{
     display: inline;
 }
 
+#projectEdit,
+#projectDelete {
+    display: none;
+    border: none;
+    background-color: orange;
+    width: calc(4px + 0.7vw);
+    height: calc(4px + 0.7vw);
+    margin-left: 10px;
+}
+
+.navItem > h1 {
+    font-size: .8rem;
+}
+.navbar:hover > .projectSection > .navItem > #projectEdit,
+.navbar:hover > .projectSection > .navItem > #projectDelete{
+    display: inline;
+}
 
 #addNew {
     margin-top: 100px;
@@ -388,6 +415,15 @@ nav {
     overflow: hidden;
     width: 5rem;
     transition: var(--transition-nav);
+}
+#projectEdit,
+#projectDelete {
+    display: none;
+    border: none;
+    background-color: orange;
+    width: calc(7px + 0.7vw);
+    height: calc(7px + 0.7vw);
+    margin-left: 5px;
 }
 }
 
