@@ -15,6 +15,10 @@ export function homePage(){
         todoListDiv.innerHTML = ""
         // User should be able to add todo items at homepage
         addListButton.style.display = "flex";
+        if (!todoItems) {
+            localStorage.setItem("todoItems", JSON.stringify([]));
+            todoItems = JSON.parse(localStorage.getItem("todoItems"));
+        } 
         todoItems.forEach(td => {
             showToDo(td);
         })

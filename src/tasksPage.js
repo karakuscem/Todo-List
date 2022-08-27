@@ -16,6 +16,10 @@ export function tasksPage(){
         todoListDiv.innerHTML = ""
         // User shouldn't be able to add todo at tasks page
         addListButton.style.display = "none";
+        if (!todoItems) {
+            localStorage.setItem("todoItems", JSON.stringify([]));
+            todoItems = JSON.parse(localStorage.getItem("todoItems"));
+        } 
         todoItems.forEach(td => {
             showToDo(td);
         })

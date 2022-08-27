@@ -35,6 +35,10 @@ export function weekPage(){
         addListButton.style.display = "none";
         todoListDiv.innerHTML = "";
         for(let i = 0; i < 6; i++){
+            if (!todoItems) {
+                localStorage.setItem("todoItems", JSON.stringify([]));
+                todoItems = JSON.parse(localStorage.getItem("todoItems"));
+            } 
             let weeksItems = todoItems;
             weeksItems = weeksItems.filter(td => td.date == dates[i])
             weeksItems.forEach(td => {

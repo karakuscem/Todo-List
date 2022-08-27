@@ -20,6 +20,10 @@ export function todayPage(){
         if(pageTitle){pageTitle.remove()};
         addListButton.style.display="none";
         todoListDiv.innerHTML = "";
+        if (!todoItems) {
+            localStorage.setItem("todoItems", JSON.stringify([]));
+            todoItems = JSON.parse(localStorage.getItem("todoItems"));
+        } 
         let todaysItems = todoItems;
         todaysItems = todaysItems.filter(td => td.date == today)
         todaysItems.forEach(td => {
