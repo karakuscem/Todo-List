@@ -14,10 +14,12 @@ export function addProject(){
         }
         else {
             // Don't allow show two input
-            projectListDiv.innerHTML = "";
-            projectItems.forEach(projectItem => {
-                showProjects(projectItem)
-            });
+            projectListDiv.innerHTML = ""
+            if(projectItems){
+                projectItems.forEach(projectItem => {
+                    showProjects(projectItem)
+                });
+            }
             // Add elements for adding project
             projectButtons.style.display = "none";
             const navItem = document.createElement("div");
@@ -56,11 +58,15 @@ export function addProject(){
                 else {
                     const projectTitle = document.createElement("h1");
                     projectTitle.innerHTML = projectTitleInput.value;
-                    projectTitle.classList.add("button");
                     const projectStorageItems = {
                         title: projectTitleInput.value.toUpperCase()
                     }
+                    if (!projectItems) {
+                        localStorage.setItem("projectItems", JSON.stringify([]));
+                        projectItems = JSON.parse(localStorage.getItem("projectItems"));
+                    } 
                     projectItems.push(projectStorageItems);
+                    projectTitle.classList.add("button");
                     localStorage.setItem("projectItems", JSON.stringify(projectItems));
                     localStorage.setItem(`${projectTitle.innerHTML.toUpperCase()}`, JSON.stringify([]))
                     projectTitleInput.remove();

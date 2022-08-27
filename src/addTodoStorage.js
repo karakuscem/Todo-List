@@ -25,6 +25,10 @@ export function addTodoStorage() {
     let pageTitle = document.querySelector(".pageTitle");
     if(pageTitle && pageTitle.innerHTML in localStorage) {
         let projectStorage = JSON.parse(localStorage.getItem(`${pageTitle.innerHTML}`))
+        if (!projectStorage) {
+            localStorage.setItem(`${pageTitle.innerHTML}`, JSON.stringify([]));
+            projectStorage = JSON.parse(localStorage.getItem(`${pageTitle.innerHTML}`))
+        } 
         projectStorage = projectStorage.filter(td => td.title != todo.title);
         projectStorage.push(todo);
         localStorage.setItem(`${pageTitle.innerHTML}`, JSON.stringify(projectStorage));
@@ -38,6 +42,10 @@ export function addTodoStorage() {
     }
     // If user not in project page save todo to default storage
     else if (!pageTitle){
+        if (!todoItems) {
+            localStorage.setItem("todoItems", JSON.stringify([]));
+            todoItems = JSON.parse(localStorage.getItem("todoItems"))
+        } 
         todoItems.push(todo);
         localStorage.setItem("todoItems", JSON.stringify(todoItems));
         todoListDiv.innerHTML = "";

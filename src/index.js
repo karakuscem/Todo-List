@@ -14,7 +14,6 @@ export let todoItems = JSON.parse(localStorage.getItem("todoItems"));
 export let projectItems = JSON.parse(localStorage.getItem("projectItems"));
 export let todoListDiv = document.querySelector(".list")
 export let projectListDiv = document.querySelector(".projectSection")
-
 // Starting app
 const startApp = () => {
     if(!todoItems) {
@@ -34,6 +33,7 @@ const startApp = () => {
         });
     }
 }
+
 // Use functions
 startApp();
 showAddTaskForm();
