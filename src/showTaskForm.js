@@ -1,4 +1,6 @@
 import { addTodoStorage } from "./addTodoStorage";
+
+// Function for showing hidden task form.
 export function showAddTaskForm() {
     const addTaskButton = document.querySelector("#addNewTask");
     const addTaskIcon = document.querySelector("#addNewTaskIcon");

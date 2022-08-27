@@ -1,3 +1,4 @@
+// Function for showing projects
 export function showProjects(projectNames) {
     const projectSection = document.querySelector(".projectSection")
     const navItem = document.createElement("div");

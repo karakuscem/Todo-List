@@ -1,3 +1,6 @@
+import { checkTodo } from "./checkTodo";
+
+// Function for creating elements for each todo
 export function showToDo(todo) {
     const toDoList = document.querySelector(".list");
 
@@ -8,7 +11,7 @@ export function showToDo(todo) {
     const checkBoxDiv = document.createElement("div");
     const checkBox = document.createElement("input");
     checkBox.type = "checkbox";
-    checkBox.checked = todo.isCompleted;
+    checkBox.id = "checkTodo";
     checkBox.classList.add("check");
     liItem.appendChild(checkBoxDiv);
     checkBoxDiv.appendChild(checkBox);
@@ -37,4 +40,26 @@ export function showToDo(todo) {
     taskDeleteIcon.src = "img/eraser-solid.svg";
     taskDeleteIcon.classList.add("taskDeleteIcon");
     liItem.appendChild(taskDeleteIcon);
+
+    // Check if task is completed
+    if(todo.isCompleted == true){
+        checkBox.checked = true;
+        taskTitleDiv.style.textDecoration = "line-through";
+        taskTitleDiv.style.color = "gray";
+        taskDetailsDiv.style.textDecoration = "line-through";
+        taskDetailsDiv.style.color = "gray";
+        taskDateDiv.style.textDecoration = "line-through";
+        taskDateDiv.style.color = "gray";
+    }
+    else if(todo.isCompleted == false){
+        checkBox.checked = false;
+        taskTitleDiv.style.textDecoration = "none";
+        taskTitleDiv.style.color = "black";
+        taskDetailsDiv.style.textDecoration = "none";
+        taskDetailsDiv.style.color = "black";
+        taskDateDiv.style.textDecoration = "none";
+        taskDateDiv.style.color = "black";
+    }
+    // Call check function
+    checkTodo()
 }

@@ -15,7 +15,7 @@ export let projectItems = JSON.parse(localStorage.getItem("projectItems"));
 export let todoListDiv = document.querySelector(".list")
 export let projectListDiv = document.querySelector(".projectSection")
 
-
+// Starting app
 const startApp = () => {
     if(!todoItems) {
         localStorage.setItem("todoItems", JSON.stringify([]));
@@ -34,7 +34,7 @@ const startApp = () => {
         });
     }
 }
-
+// Use functions
 startApp();
 showAddTaskForm();
 deleteTodo();

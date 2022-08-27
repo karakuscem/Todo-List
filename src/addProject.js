@@ -5,17 +5,20 @@ import { showProjectTasks } from "./showProjectTasks";
 const newProjectButton = document.querySelectorAll("#addNewProject");
 const projectButtons = document.querySelector("#addNew");
 const projectSection = document.querySelector(".projectSection")
-
+// Function for adding projects
 export function addProject(){
     newProjectButton.forEach(btn => btn.addEventListener("click", (e) => {
+        //Check how many project user have and won't let more than 5
         if(projectSection.childElementCount >= 5){
             alert("You cannot add more projects");
         }
         else {
+            // Don't allow show two input
             projectListDiv.innerHTML = "";
             projectItems.forEach(projectItem => {
                 showProjects(projectItem)
             });
+            // Add elements for adding project
             projectButtons.style.display = "none";
             const navItem = document.createElement("div");
             navItem.classList.add("navItem");
@@ -42,6 +45,7 @@ export function addProject(){
             projectCancel.id = "navCancel";
             projectCancel.src = "img/ban-solid.svg";
             navItem.appendChild(projectCancel);
+            // If user click okay, add storage and show project items
             projectOkay.addEventListener("click", (e) => {
                 if(projectTitleInput.value == ""){
                     alert("You must fill the title.")
@@ -70,6 +74,7 @@ export function addProject(){
                     projectButtons.style.display = "flex";
                 }
             })
+            // If user click cancel do nothing and show existing projects.
             projectCancel.addEventListener("click", (e) => {
                 navItem.remove();
                 projectButtons.style.display = "flex";
