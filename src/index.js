@@ -19,10 +19,10 @@ export let projectListDiv = document.querySelector(".projectSection")
 // Starting app
 const startApp = () => {
     if(!todoItems) {
-        localStorage.setItem("todoItems", JSON.stringify([{"isCompleted":true,"title":"Do Homework","description":"Do Math book p64-68","date":"2022-08-27"},{"isCompleted":false,"title":"Wash dishes","description":"I better do it before my mom comes","date":"2022-08-27"},{"isCompleted":true,"title":"Go Gym","description":"Lift like animal 💪","date":"2022-08-27"},{"isCompleted":false,"title":"Meeting with friends","description":"8pm at Coffee shop","date":"2022-08-31"},{"isCompleted":false,"title":"Code To-Do App","description":"Check Odin Project","date":"2022-09-03"},{"isCompleted":false,"title":"Apply for University","description":"Last Date 16 September","date":"2022-09-10"}]));
+        localStorage.setItem("todoItems", JSON.stringify([]));
     }
     else if (!projectItems) {
-        localStorage.setItem("projectItems", JSON.stringify([{"title":"TO-DO APP"},{"title":"TICTACKTOE"},{"title":"CALCULATOR"},{"title":"ROCKPAPER"},{"title":"LANDING PAGE"}]));
+        localStorage.setItem("projectItems", JSON.stringify([]));
     } 
     else {
         todoListDiv.innerHTML = "";
