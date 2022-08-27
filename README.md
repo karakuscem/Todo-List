@@ -8,6 +8,8 @@
 
 -Can add todo to project.
 
+-Can edit and delete projects.
+
 -Show today's todo (projects todo's not included).
 
 -Show week's todo (projects todo's not included).

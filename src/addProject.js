@@ -1,4 +1,6 @@
 import { projectItems, projectListDiv } from ".";
+import { deleteProject } from "./deleteProject";
+import { editProject } from "./editProject";
 import { showProjects } from "./showProject";
 import { showProjectTasks } from "./showProjectTasks";
 
@@ -9,7 +11,7 @@ const projectSection = document.querySelector(".projectSection")
 export function addProject(){
     newProjectButton.forEach(btn => btn.addEventListener("click", (e) => {
         //Check how many project user have and won't let more than 5
-        if(projectSection.childElementCount >= 5){
+        if(projectSection.childElementCount > 4){
             alert("You cannot add more projects");
         }
         else {
@@ -19,6 +21,7 @@ export function addProject(){
                 projectItems.forEach(projectItem => {
                     showProjects(projectItem)
                 });
+                deleteProject();
             }
             // Add elements for adding project
             projectButtons.style.display = "none";
@@ -77,6 +80,8 @@ export function addProject(){
                         showProjects(projectItem)
                         showProjectTasks();
                     });
+                    editProject();
+                    deleteProject();
                     projectButtons.style.display = "flex";
                 }
             })

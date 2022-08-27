@@ -9,6 +9,8 @@ import { tasksPage } from "./tasksPage";
 import { homePage } from "./homePage";
 import { todayPage } from "./todayPage";
 import { weekPage } from "./weekPage";
+import { deleteProject } from "./deleteProject";
+import { editProject } from "./editProject";
 
 export let todoItems = JSON.parse(localStorage.getItem("todoItems"));
 export let projectItems = JSON.parse(localStorage.getItem("projectItems"));
@@ -45,3 +47,5 @@ tasksPage();
 homePage();
 todayPage();
 weekPage();
+deleteProject();
+editProject();

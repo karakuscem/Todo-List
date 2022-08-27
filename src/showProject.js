@@ -13,4 +13,14 @@ export function showProjects(projectNames) {
     projectTitle.textContent = projectNames.title;
     projectTitle.id = "projectButton";
     navItem.appendChild(projectTitle);
+    
+    const projectEdit = document.createElement("img");
+    projectEdit.id = "projectEdit";
+    projectEdit.src = "img/pencil-solid.svg";
+    navItem.appendChild(projectEdit)
+    
+    const projectDelete = document.createElement("img");
+    projectDelete.id = "projectDelete";
+    projectDelete.src = "img/eraser-solid.svg";
+    navItem.appendChild(projectDelete)
 }
